@@ -14,10 +14,8 @@ public class Rectangle extends Visibility implements ShapeBasic {
         System.out.println("Growing the size of the rectangle");
     }
 
-    @Override
     public String printText() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printText'");
+        return rectangleToPrint;
     }
 
     @Override

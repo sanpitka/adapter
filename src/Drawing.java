@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Drawing<T extends ShapeBasic> {
+public abstract class Drawing<T> {
 
     private List<T> shapes = new ArrayList<>();
 
@@ -18,7 +18,7 @@ public abstract class Drawing<T extends ShapeBasic> {
     }
 
     /**
-     * The method getBasicShapes must return a new list of the elements included in the Drawing.
+     * Returns a new list of the elements included in the Drawing.
      * */
     public List<T> getBasicShapes(){
         return shapes;
