@@ -6,38 +6,36 @@ public class ShapeDrawer extends Drawing<ShapeBasic>{
 
     }
 
-    ShapeDrawer drawer = new ShapeDrawer();
-
     public void draw() {
-        List<ShapeBasic> shapes = drawer.getBasicShapes();
+        List<ShapeBasic> shapes = super.getBasicShapes();
 
         if (shapes == null) {
             System.out.println("Drawing is empty!");
         }
         else {
             for (ShapeBasic shape : shapes) {
-                System.out.println("This is a " + shape.printText());
+                shape.draw();
             }
         }
 
     }
 
     public void grow() {
-        List<ShapeBasic> shapes = drawer.getBasicShapes();
-
+        List<ShapeBasic> shapes = super.getBasicShapes();
+        System.out.println("");
         if (shapes == null) {
             System.out.println("Drawing is empty!");
         }
         else {
             for (ShapeBasic shape : shapes) {
-                System.out.println("Growing the size of the " + shape.printText());
+                shape.grow();
             }
         }
     }
 
     public void showVisibility() {
-        List<ShapeBasic> shapes = drawer.getBasicShapes();
-
+        List<ShapeBasic> shapes = super.getBasicShapes();
+        System.out.println("");
         if (shapes == null) {
             System.out.println("Drawing is empty!");
         }
@@ -50,7 +48,7 @@ public class ShapeDrawer extends Drawing<ShapeBasic>{
                 }
                 else System.out.println(i + ". shape is in the background: " + shape.printText());
             }
-            System.out.println("Total number of shapes: " + i);
+            System.out.println("\nTotal number of shapes: " + i);
             
         }
 
