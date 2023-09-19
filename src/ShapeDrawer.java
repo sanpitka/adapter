@@ -7,6 +7,7 @@ public class ShapeDrawer extends Drawing<ShapeBasic>{
     }
 
     public void draw() {
+        System.out.println("");
         List<ShapeBasic> shapes = super.getBasicShapes();
 
         if (shapes == null) {
