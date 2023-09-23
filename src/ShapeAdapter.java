@@ -19,6 +19,7 @@ public class ShapeAdapter extends Visibility implements ShapeBasic{
     public String printText() {
         Triangle triangle = new Triangle();
         ShapeDiamond diamond = new ShapeDiamond();
+        
         if (triangle instanceof ShapeSpecial) {
             return "Triangle";
         }
