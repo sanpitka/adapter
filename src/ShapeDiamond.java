@@ -1,6 +1,6 @@
 import java.text.DecimalFormat;
 
-public class ShapeDiamond implements CanBeColored,ShapeSpecial {
+public class ShapeDiamond implements ShapeSpecial,CanBeColored {
     private double a = 2.0;
     private double b = 2.0;
     private DecimalFormat df2 = new DecimalFormat("#.##");
@@ -58,7 +58,8 @@ public class ShapeDiamond implements CanBeColored,ShapeSpecial {
 
     @Override
     public String setColor(String color){
-        return CanBeColored.super.setColor(color);
+        this.color = CanBeColored.super.setColor(color);
+        return color;
     }
     public String getColor(){
         if (color.equals("No color")) {
