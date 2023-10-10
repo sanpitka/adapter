@@ -11,7 +11,8 @@ public class Triangle implements ShapeSpecial,CanBeColored {
 
     }
     public Triangle(String s){
-        setColor(s);
+        this.color = setColor(s);
+
     }
     public Triangle(double x, double y, double z){
         if(checkValues(x, y, z)){
@@ -26,9 +27,15 @@ public class Triangle implements ShapeSpecial,CanBeColored {
             this.b = y;
             this.c = z;
         }
-        setColor(s);
-        
+        this.color = s;        
     }
+
+    /**Checks that the double type parameters are greater than or equal 3.0 
+     * @param first The first parameter (double)
+     * @param second The second parameter (double)
+     * @param third The third parameter (double)
+     * @return true if the parameters are correct size, false otherwise
+    */
     private boolean checkValues(double first, double second, double third){
         if(first >= 3.0 && second >=3.0 && third >= 3.0){
             return true;
@@ -37,23 +44,38 @@ public class Triangle implements ShapeSpecial,CanBeColored {
         }
     }
 
+    /**
+     * Calculates the perimeter of this triangle shape
+     * @return perimeter
+     */
     public double calculatePerimeter(){
-        double perimeter = calculatePerimeter();
-        return (perimeter*(perimeter-a)*(perimeter-b)*(perimeter-c));//(p * (p - a) * (p - b) * (p - c))
+        return (a+b+c);
     }
+
+    /**
+     * Calculates the area of this triangle shape
+     * @return area
+     */
     public double calculateArea(){
-        return a+b+c;
+        double p = (a+b+c)/2;
+        return (Math.sqrt(p * (p - a) * (p - b) * (p - c)));
     }
+
+    /**
+     * "Draws" a new triangle to the drawing by printing the shape name, area, perimeter, and color.
+     */
     public void drawShape(){
         String output = String.format("This is a triangle with area: %s and perimeter: %s. Color: %s", df2.format(calculateArea()),
         df2.format(calculatePerimeter()), getColor());
         System.out.println(output);
     }
+    
     public String getColor(){
         return color;
     }
+    
     @Override
-    public  String setColor(String color){
+    public String setColor(String color){
         return CanBeColored.super.setColor(color);
     }
 }

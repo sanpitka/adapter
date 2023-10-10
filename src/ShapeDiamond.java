@@ -7,11 +7,31 @@ public class ShapeDiamond implements CanBeColored,ShapeSpecial {
     private String color = "No color";
 
     public ShapeDiamond(){
-
     }
+
     public ShapeDiamond(String s){
-
     }
+
+    public ShapeDiamond(double x, double y){
+        if(checkDecimals(x,y)){
+            this.a = x;
+            this.b = y;
+        }
+    }
+
+    public ShapeDiamond(double x, double y, String s){
+        if(checkDecimals(x, y)){
+            this.a = x;
+            this.b = y;
+        }
+        this.color = setColor(s);
+    }
+
+    /**Checks that the double type parameters are greater than or equal 2.0 
+     * @param first The first parameter (double)
+     * @param second The second parameter (double)
+     * @return true if the parameters are correct size, false otherwise
+    */
     private boolean checkDecimals(double first, double second){
         if(first>=a || second>=b){
             return true;
@@ -19,35 +39,40 @@ public class ShapeDiamond implements CanBeColored,ShapeSpecial {
             return false;
         }
     }
-    public ShapeDiamond(double x, double y){
-        if(checkDecimals(x,y)){
-            this.a = x;
-            this.b = y;
-        }
-    }
-    public ShapeDiamond(double x, double y, String s){
-        if(checkDecimals(x, y)){
-            this.a = x;
-            this.b = y;
-        }
-    }
+    
+    /**
+     * Calculates the area of this diamond shape
+     * @return area
+     */
     public double calculateArea(){
-        return (a*b)/2;
+        return (a*b);
     }
+
+    /**
+     * Calculates the perimeter of this diamond shape
+     * @return perimeter
+     */
     public double calculatePerimeter(){
-        return a*4;
+        return a+b+a+b;
     }
+
     @Override
     public String setColor(String color){
         return CanBeColored.super.setColor(color);
     }
     public String getColor(){
+        if (color.equals("No color")) {
+            return "The shape is not colored";
+        }
         return color;
     }
- 
+    
+    /**
+     * "Draws" a new diamond shape to the drawing by printing the shape name, area, perimeter, and color.
+     */
     public void drawShape(){
         String output = String.format( "This is a diamond shape with area: %s and perimeter: %s. Color: %s ", df2.format(calculateArea()),
-        df2.format(calculatePerimeter()),getColor());
+        df2.format(calculatePerimeter()), getColor());
         System.out.println(output);
         
     }   

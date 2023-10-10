@@ -1,7 +1,9 @@
 public class ShapeAdapter extends Visibility implements ShapeBasic{
-    ShapeSpecial shapeSpecial;
+
+    private ShapeSpecial shapeSpecial;
 
     public ShapeAdapter(ShapeSpecial shapeSpecial) {
+        super();
         this.shapeSpecial=shapeSpecial;
     }
 
@@ -17,13 +19,11 @@ public class ShapeAdapter extends Visibility implements ShapeBasic{
 
     @Override
     public String printText() {
-        Triangle triangle = new Triangle();
-        ShapeDiamond diamond = new ShapeDiamond();
         
-        if (triangle instanceof ShapeSpecial) {
+        if (shapeSpecial instanceof Triangle) {
             return "Triangle";
         }
-        else if (diamond instanceof ShapeSpecial) {
+        else if (shapeSpecial instanceof ShapeDiamond) {
             return "ShapeDiamond";
         }
         else return "This shape is not supported";

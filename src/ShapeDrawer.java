@@ -6,6 +6,14 @@ public class ShapeDrawer extends Drawing<ShapeBasic>{
 
     }
 
+    /**
+     * "Draws" the shape by printing information about it.
+     * <ul>
+     * <li>
+     * Name of the shape
+     * </li><li>
+     * 
+     */
     public void draw() {
         System.out.println("");
         List<ShapeBasic> shapes = super.getBasicShapes();
@@ -21,6 +29,9 @@ public class ShapeDrawer extends Drawing<ShapeBasic>{
 
     }
 
+    /**
+     * Grows the size of the shape
+     */
     public void grow() {
         List<ShapeBasic> shapes = super.getBasicShapes();
         System.out.println("");
