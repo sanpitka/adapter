@@ -1,6 +1,6 @@
 import java.text.DecimalFormat;
 
-public class ShapeDiamond implements CanBeColored,ShapeSpecial {
+public class ShapeDiamond implements ShapeSpecial,CanBeColored {
     private double a = 2.0;
     private double b = 2.0;
     private DecimalFormat df2 = new DecimalFormat("#.##");
@@ -10,7 +10,7 @@ public class ShapeDiamond implements CanBeColored,ShapeSpecial {
 
     }
     public ShapeDiamond(String s){
-
+        setColor(s);
     }
     private boolean checkDecimals(double first, double second){
         if(first>=a || second>=b){
@@ -30,19 +30,26 @@ public class ShapeDiamond implements CanBeColored,ShapeSpecial {
             this.a = x;
             this.b = y;
         }
+        setColor(s);
     }
     public double calculateArea(){
-        return (a*b)/2;
+        return a*b;
     }
     public double calculatePerimeter(){
         return a*4;
     }
     @Override
     public String setColor(String color){
-        return CanBeColored.super.setColor(color);
+        this.color = CanBeColored.super.setColor(color);
+        return color;
     }
     public String getColor(){
-        return color;
+        if(color.equals("No color")){
+            return "The shape is not colored";
+        }else{
+            return color;
+        }
+        
     }
  
     public void drawShape(){

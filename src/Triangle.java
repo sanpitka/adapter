@@ -38,11 +38,11 @@ public class Triangle implements ShapeSpecial,CanBeColored {
     }
 
     public double calculatePerimeter(){
-        double perimeter = calculatePerimeter();
-        return (perimeter*(perimeter-a)*(perimeter-b)*(perimeter-c));//(p * (p - a) * (p - b) * (p - c))
+        return (a+b+c);//(p * (p - a) * (p - b) * (p - c))
     }
     public double calculateArea(){
-        return a+b+c;
+        double p = calculatePerimeter()/2;
+        return Math.sqrt((p * (p - a) * (p - b) * (p - c)));
     }
     public void drawShape(){
         String output = String.format("This is a triangle with area: %s and perimeter: %s. Color: %s", df2.format(calculateArea()),
@@ -54,6 +54,7 @@ public class Triangle implements ShapeSpecial,CanBeColored {
     }
     @Override
     public  String setColor(String color){
-        return CanBeColored.super.setColor(color);
+        this.color = CanBeColored.super.setColor(color);
+        return color;
     }
 }
