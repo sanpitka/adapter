@@ -40,6 +40,9 @@ public class ShapeDrawer extends Drawing<ShapeBasic>{
         }
     }
 
+    /**
+     * Prints the visibility of each shape and total number of shapes
+     */
     public void showVisibility() {
         List<ShapeBasic> shapes = super.getBasicShapes();
         System.out.println("");
