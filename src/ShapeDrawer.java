@@ -7,12 +7,7 @@ public class ShapeDrawer extends Drawing<ShapeBasic>{
     }
 
     /**
-     * "Draws" the shape by printing information about it.
-     * <ul>
-     * <li>
-     * Name of the shape
-     * </li><li>
-     * 
+     * "Draws" the shape by printing information about it. 
      */
     public void draw() {
         System.out.println("");
